@@ -16,13 +16,13 @@ export default function ChatRoom() {
     const [allMessages, setAllMessages] = useState([])
     
     useEffect(()=>{
-        const socket = io("https://chb-server.herokuapp.com/");
+        const socket = io("https://cbx-server.herokuapp.com/");
         setScoket(socket)
 
         socket.on("connect", () => {
             socket.emit("chatRoom", location.state.chatRoom)
         });
-    },[])
+    },[location.state.chatRoom])
     
     useEffect(()=>{
         setUser(location.state)
