@@ -16,10 +16,11 @@ export default function ChatRoom() {
     const [allMessages, setAllMessages] = useState([])
     
     useEffect(()=>{
-        const socket = io("https://cbx-server.herokuapp.com/");
+        const socket = io("http://localhost:8080/")
         setScoket(socket)
-
+        
         socket.on("connect", () => {
+            // console.log(scoket.id)
             socket.emit("chatRoom", location.state.chatRoom)
         });
     },[location.state.chatRoom])
@@ -67,7 +68,7 @@ export default function ChatRoom() {
                             </span>
                         </div>*/}
                         <div className="position-relative mt-2">
-                            <Image src="https://placeimg.com/171/180/any" height="40px" width="40px" roundedCircle />
+                            <Image src="https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863" height="40px" width="40px" roundedCircle />
 
                             <span style={{padding: "6px", start: "50px"}} className="position-absolute top-100 translate-middle bg-success border border-light rounded-circle">
                                 <span className="visually-hidden">New alerts</span>
