@@ -23,7 +23,7 @@ export default function ChatRoom() {
             console.log(scoket.id)
             socket.emit("chatRoom", location.state.chatRoom)
         });
-    },[location.state.chatRoom])
+    },[location.state.chatRoom]) 
     
     useEffect(()=>{
         setUser(location.state)
