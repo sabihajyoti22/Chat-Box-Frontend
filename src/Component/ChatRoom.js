@@ -20,7 +20,6 @@ export default function ChatRoom() {
         setScoket(socket)
         
         socket.on("connect", () => {
-            console.log(scoket.id)
             socket.emit("chatRoom", location.state.chatRoom)
         });
     },[location.state.chatRoom]) 
