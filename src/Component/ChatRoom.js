@@ -17,6 +17,7 @@ export default function ChatRoom() {
     
     useEffect(()=>{
         const socket = io(process.env.REACT_APP_SERVER_URL)
+        console.log(scoket)
         setScoket(socket)
         
         socket.on("connect", () => {
