@@ -10,18 +10,18 @@ export default function ChatRoom() {
     let location = useLocation()
     let msgBox = useRef()
     
-    const [scoket,setScoket] = useState("")
+    const [scoket, setScoket] = useState("")
     const [user,setUser] = useState({})
     const [messages, setMessages] = useState("")
     const [allMessages, setAllMessages] = useState([])
     
     useEffect(()=>{
-        const socket = io("http://localhost:8080/")
+        const socket = io(process.env.REACT_APP_SERVER_URL)
         setScoket(socket)
         
         socket.on("connect", () => {
             socket.emit("chatRoom", location.state.chatRoom)
-        });
+        })
     },[location.state.chatRoom]) 
     
     useEffect(()=>{
@@ -31,8 +31,6 @@ export default function ChatRoom() {
     useEffect(()=>{
         if(scoket){
             scoket.on("getLatestMessage", (newMessages)=>{
-                console.log(allMessages)
-                console.log(newMessages)
                 setAllMessages([...allMessages, newMessages])
                 msgBox.current.scrollIntoView({behavior: "smooth"})
             })
