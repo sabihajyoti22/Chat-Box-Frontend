@@ -18,8 +18,8 @@ export default function ChatRoom() {
     useEffect(()=>{
         const socket = io(process.env.REACT_APP_SERVER_URL, {
             path: '/socket.io',
-            transports: ['websocket'],
-            secure: true,
+            transports: ['websockets', 'polling'],
+            // secure: true,
         })
         setScoket(socket)
         
