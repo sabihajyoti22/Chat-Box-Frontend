@@ -16,7 +16,9 @@ export default function ChatRoom() {
     const [allMessages, setAllMessages] = useState([])
     
     useEffect(()=>{
-        const socket = io(process.env.REACT_APP_SERVER_URL)
+        const socket = io(process.env.REACT_APP_SERVER_URL, {
+            transports: ['websockets', 'polling']
+        })
         setScoket(socket)
         
         socket.on("connect", () => {
