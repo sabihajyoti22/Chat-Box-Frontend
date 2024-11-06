@@ -20,7 +20,7 @@ export default function ChatRoom() {
             path: '/socket.io',
             withCredentials: true,
             transports: ['websocket', 'polling'],
-            secure: true,
+            // secure: true,
         })
         setScoket(socket)
         
